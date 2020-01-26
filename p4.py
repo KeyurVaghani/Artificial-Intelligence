@@ -1,3 +1,9 @@
+'''
+    Subject: AI
+    Practical: Classical "8 Puzzle" using state space tree (Python)
+    Author: Raj Dhanani (160420116013)
+'''
+
 from copy import copy, deepcopy
 import sys
 sys.setrecursionlimit(10 ** 6)
@@ -114,11 +120,11 @@ def traceSolution(root):
 
 def _8puzzle(rootState):
     q = []
-    # rootState = [
-    #                 [1, 8, 2],
-    #                 [0, 4, 3],
-    #                 [7, 6, 5]
-    #             ]
+    # Eg. rootState = [
+    #                     [1, 8, 2],
+    #                     [0, 4, 3],
+    #                     [7, 6, 5]
+    #                 ]
     finalState = [
                     [1, 2, 3],
                     [4, 5, 6],
