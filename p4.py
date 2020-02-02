@@ -90,7 +90,7 @@ def initializeChilds(parentNode,finalState,level,visitedStates):
         temp2[xIndex][yIndex],temp2[xIndex][yIndex+i] = temp2[xIndex][yIndex+i],temp2[xIndex][yIndex]
         if temp2 not in visitedStates:
             visitedStates.append(temp2)
-            parentNode.childs.append(createNode(temp2,level,parentNode,cost(temp1,finalState,level)))
+            parentNode.childs.append(createNode(temp2,level,parentNode,cost(temp2,finalState,level)))
             # printMatrix(temp2)
 
 def takeCost(elem):
