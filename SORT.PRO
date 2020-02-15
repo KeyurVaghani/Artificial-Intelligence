@@ -1,0 +1,39 @@
+%trace
+domains
+	list = integer*
+predicates
+	del(list,integer,list).
+	max(integer,integer,integer)
+	maxInList(list,integer)
+	m(list,integer,integer)
+	sort(list,list)
+	s(list,list,list)
+	g
+clauses
+	del([H],E,R):-H=E,R=[];R=[H].
+	del([H|T],E,R):-
+		H=E,R=T;
+		del(T,E,R1),R=[H|R1].
+	max(X,Y,Z):-
+		X<Y,Z=Y;Z=X.
+	maxInList([],_):-!,fail.
+	maxInList([H|T],M):-m(T,H,M).
+	m([],M,M).
+	m([H|T],OldM,M):-
+		max(H,OldM,NewM),
+		m(T,NewM,M).
+	sort([H],[H]).
+	sort([],[]).
+	sort(L,R):-s(L,[],R).
+	s([H],L,[H|L]).
+	s(I,L,R):-
+		maxInList(I,E),
+		del(I,E,O),
+		s(O,[E|L],R).	
+		
+	g:-
+		%del([1,2,3,4],1,R1),write(R1),nl,
+		%maxInList([],X),write(X),nl.
+		sort([2,1,4,5,1,2,3],R2),write(R2),nl.
+	g.
+	
